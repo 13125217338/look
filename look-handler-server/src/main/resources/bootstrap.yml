@@ -1,0 +1,17 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: look-handler
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 120.78.159.145:8848
+      config:
+        server-addr: 120.78.159.145:8848
+        namespace: Look
+        file-extension: yml
+        extension-configs[0]:
+           data-id: global.yml
+           refresh: true

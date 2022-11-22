@@ -6,4 +6,37 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>look-handler-server</artifactId>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>com.huidihao</groupId>
+  		<artifactId>look-handler-core</artifactId>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>com.huidihao</groupId>
+  		<artifactId>look-handler-html</artifactId>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+      <plugins>
+      	<plugin>
+      		<groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+      	</plugin>
+      	<plugin>
+      		<groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+      	</plugin>
+      	<plugin>
+      		<groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+      	</plugin>
+      	<plugin>
+      		<groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+      	</plugin>
+      </plugins>
+  </build>
 </project>
