@@ -15,7 +15,7 @@ public class HuidihaoHandlerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HuidihaoHandlerApplication.class, args);
 		
-		System.out.println("(♥◠‿◠)ﾉﾞ  云MAS接口服务启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
+		System.out.println("(♥◠‿◠)ﾉﾞ  二十大阅读服务启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
 				" .-------.       ____     __        \n" +
 				" |  _ _   \\      \\   \\   /  /    \n" +
 				" | ( ' )  |       \\  _. /  '       \n" +

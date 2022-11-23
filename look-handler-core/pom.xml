@@ -12,5 +12,10 @@
   		<groupId>org.city</groupId>
   		<artifactId>service-common-core</artifactId>
   	</dependency>
+  	
+  	<dependency>
+  		<groupId>com.huidihao</groupId>
+  		<artifactId>look-handler-api</artifactId>
+  	</dependency>
   </dependencies>
 </project>

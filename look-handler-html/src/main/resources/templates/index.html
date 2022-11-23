@@ -3,6 +3,18 @@
 	<meta charset="utf-8" title="测试">
 </head>
 <body>
-	<h1 th:text="${msg}">大家好</h1>
+	<button onclick="startRec()">开始录音</button>
+	<button onclick="stopRec()">停止录音</button>
+	<audio id="AL" autoplay="autoplay"></audio>
+	
+	<hr/>
+	<div th:each="audio : ${audios}">
+		<br/>
+		<span th:text="${audio.audioName}"></span>
+		<button th:onclick="'listening(' + ${audio.id} + ')'">听听语音</button>
+	</div>
 </body>
+
+<script src="/common/jquery.min.js"></script>
+<script src="/index/index.js"></script>
 </html>
