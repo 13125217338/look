@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" title="主页" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
+	<link href="/main/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="main">
+		<div class="next" onclick="next(this)"></div>
+		<div id="index">
+			<div class="select" onclick="openUrl(1)"><b>读懂二十大</b></div>
+			<div class="select" onclick="openUrl(2)"><b>学红色精神</b></div>
+			<div class="select" onclick="openUrl(3)"><b>赛党史精神</b></div>
+			<div class="select_b">
+				<b onclick="openUrl(4)">云共读 赛感悟</b>
+				<br />
+				<div class="upload" onclick="openUrl(5)"></div>
+			</div>
+		</div>
+		<div id="read">
+			<div class="select-read">
+				<div class="gh" onclick="openRead('观湖')"></div>
+				<div class="nnw" onclick="openRead('南泥湾')"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="/common/jquery.min.js"></script>
+<script src="/main/main.js"></script>
+</html>

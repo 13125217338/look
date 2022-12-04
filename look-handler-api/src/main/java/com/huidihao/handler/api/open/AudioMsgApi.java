@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.huidihao.handler.api.dto.AudioMsgDto;
 
 /**
@@ -19,16 +17,17 @@ public interface AudioMsgApi {
 
 	/**
 	 * @描述 推送语音数据
-	 * @param file 文件
+	 * @param audioMsgDto 录音数据
 	 * @throws IOException
 	 */
-	public void push(MultipartFile file) throws IOException;
+	public void push(AudioMsgDto audioMsgDto) throws IOException;
 	
 	/**
 	 * @描述 列出语音数据列表
+	 * @param audioMsgDto 语音数据
 	 * @return 语音数据列表
 	 */
-	public List<AudioMsgDto> list();
+	public List<AudioMsgDto> list(AudioMsgDto audioMsgDto);
 	
 	/**
 	 * @描述 获取语音数据

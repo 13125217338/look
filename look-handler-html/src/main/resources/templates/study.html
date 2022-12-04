@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" title="学习" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
+	<link href="/study/study.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="main">
+		<!-- 二十大 -->
+		<div id="big" th:if="${type} == 1">
+			<div onclick="openUrl(1)">
+				<div class="info"></div>
+				<div class="content">习近平：高举中国特色社会主义伟大旗帜 为全面建设社会主义现代化国家而团结奋斗——在中国共产党第二十次全国代表大会上的报告</div>
+				<div class="title"></div>
+			</div>
+			<div onclick="openUrl(2)">
+				<div class="info"></div>
+				<div class="content">习近平2022年10月27日在瞻仰延安革命纪念地时强调 弘扬伟大建党精神和延安精神 为实现党的二十大提出的目标任务而团结奋斗</div>
+				<div class="title"></div>
+			</div>
+			<div onclick="openUrl(3)">
+				<div class="info"></div>
+				<div class="content">把握好习近平新时代中国特色社会主义思想的世界观和方法论</div>
+				<div class="title"></div>
+			</div>
+			<div onclick="openUrl(4)">
+				<div class="info"></div>
+				<div class="content">习近平论大力弘扬自力更生、艰苦奋斗精神</div>
+			</div>
+		</div>
+		<!-- 红色精神 -->
+		<div id="red" th:if="${type} == 2">
+			<div>
+				<div class="info"></div>
+				<div class="content">延安精神</div>
+				<div class="sub" onclick="openUrl(5)">延安精神永放光芒</div>
+				<div class="sub" onclick="openUrl(6)">弘扬延安精神 走好新的赶考之路</div>
+				<div class="sub" onclick="openUrl(7)">外国友人眼中的延安精神</div>
+				<div class="title"></div>
+			</div>
+			<div>
+				<div class="info"></div>
+				<div class="content">特区精神</div>
+				<div class="sub" onclick="openUrl(8)">特区精神：敢为天下先 勇当“拓荒牛”</div>
+				<div class="sub" onclick="openUrl(9)">发扬特区精神 深化改革开放</div>
+				<div class="sub" onclick="openUrl(10)">春天的故事，不朽的传奇</div>
+				<div class="title"></div>
+			</div>
+			<div>
+				<div class="info"></div>
+				<div class="content">两地共建</div>
+				<div class="sub" onclick="openUrl(11)">从红色精神到奋斗文化 | 深圳观湖与南泥湾携手，探索基层党建创新新样本</div>
+				<div class="sub" onclick="openUrl(12)">他们正在探索一条符合两地实际、在全国具有示范意义的党建共建新路径</div>
+				<div class="sub" onclick="openUrl(13)">一堂云党课，两个“特区”的精神牵手：红色精神与奋斗文化在“云”间传递</div>
+				<div class="sub" onclick="openUrl(14)">延安到观湖，一场红色精神与奋斗文化的“艺术对画”递</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="/common/jquery.min.js"></script>
+<script src="/study/study.js"></script>
+</html>

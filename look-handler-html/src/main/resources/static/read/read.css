@@ -1,0 +1,126 @@
+body,html {
+	margin: 0px;
+	padding: 0px;
+}
+
+#main {
+	position: relative;
+	max-width: 500px;
+	background-image: url('/read/img/cloud-read.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+
+#read {
+	position: absolute;
+	bottom: 5%;
+	left: 5%;
+	width: 90%;
+	height: 62%;
+}
+
+.read-c {
+	height: 80%;
+	overflow: auto;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	height: 15%;
+	background-image: url('/read/img/content.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.info {
+	position: relative;
+	left: 10%;
+	font-weight: bold;
+	width: 65%;
+}
+
+.see {
+	position: relative;
+	height: 70%;
+	width: 30%;
+	background-image: url('/read/img/see.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.read-b {
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.back {
+	width: 30%;
+	height: 50%;
+	background-image: url('/read/img/back.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#user {
+	position: absolute;
+	bottom: 2%;
+	left: 5%;
+	width: 90%;
+	height: 55%;
+}
+
+#name {
+	position: relative;
+	width: 50%;
+	left: 30%;
+	text-align: center;
+	font-weight: bold;
+}
+
+#msg {
+	position: relative;
+	width: 80%;
+	height: 20%;
+	left: 10%;
+	top: 25%;
+	font-size: 12px;
+	overflow: auto;
+}
+
+.audio {
+	position: relative;
+	width: 60%;
+	height: 7%;
+	left: 20%;
+	top: 45%;
+	background-image: url('/read/img/audio.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.make {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 10%;
+}
+.make > div {
+	width: 30%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.create {
+	float: left;
+	background-image: url('/read/img/create.png');
+}
+.more {
+	float: right;
+	background-image: url('/read/img/more.png');
+}

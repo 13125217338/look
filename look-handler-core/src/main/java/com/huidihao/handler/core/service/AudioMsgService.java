@@ -16,7 +16,6 @@ import org.city.common.core.service.AbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.huidihao.handler.api.dto.AudioMsgDto;
 import com.huidihao.handler.api.open.AudioMsgApi;
@@ -33,20 +32,20 @@ public class AudioMsgService extends AbstractService<AudioMsgDto, AudioMsgEntity
 
 	@Override
 	@Transactional
-	public void push(MultipartFile file) throws IOException {
-		File outFile = new File("audio");
-		if (!outFile.exists()) {outFile.mkdirs();}
-		outFile = new File(outFile, UUID.randomUUID() + file.getOriginalFilename());
-		
-		/* 语音数据 */
-		AudioMsgDto audioMsgDto = new AudioMsgDto();
-		audioMsgDto.setUserName("测试");
-		audioMsgDto.setAudioName(outFile.getName());
-		audioMsgDto.setAudioPath(outFile.getAbsolutePath());
-		
+	public void push(AudioMsgDto audioMsgDto) throws IOException {
 		/* 添加录音文件 */
-		Assert.isTrue(add(audioMsgDto), String.format("用户%s未添加语音数据！", audioMsgDto.getUserName()));
-		try(InputStream in = file.getInputStream(); OutputStream out = new FileOutputStream(outFile)) {file.getInputStream().transferTo(out);}
+		Assert.isTrue(add(audioMsgDto), String.format("用户%s未添加语音数据！", audioMsgDto.getName()));
+		/* 有语音才添加 */
+		if (audioMsgDto.getFile() !=  null) {
+			File outFile = new File("audio");
+			if (!outFile.exists()) {outFile.mkdirs();}
+			outFile = new File(outFile, UUID.randomUUID() + audioMsgDto.getFile().getOriginalFilename());
+			
+			/* 语音数据 */
+			audioMsgDto.setAudioName(outFile.getName());
+			audioMsgDto.setAudioPath(outFile.getAbsolutePath());
+			try(InputStream in = audioMsgDto.getFile().getInputStream(); OutputStream out = new FileOutputStream(outFile)) {in.transferTo(out);}
+		}
 	}
 	
 	@Override
@@ -60,7 +59,7 @@ public class AudioMsgService extends AbstractService<AudioMsgDto, AudioMsgEntity
 	}
 
 	@Override
-	public List<AudioMsgDto> list() {
-		return findAll(new Condition());
+	public List<AudioMsgDto> list(AudioMsgDto audioMsgDto) {
+		return findAll(new Condition("place", audioMsgDto.getPlace()).limit(audioMsgDto));
 	}
 }

@@ -1,0 +1,91 @@
+body,html {
+	margin: 0px;
+	padding: 0px;
+}
+
+#main {
+	position: relative;
+	max-width: 500px;
+	background-image: url('/upload/img/upload.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.content {
+	position: absolute;
+	bottom: 8%;
+	left: 10%;
+	width: 80%;
+	height: 57%;
+}
+.content > div {
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.name-info, .post-info {
+	position: relative;
+	height: 7%;
+	width: 50%;
+}
+#name, #post {
+	width: 100%;
+	height: 100%;
+}
+
+.place {
+	font-weight: normal!important;
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+
+.post-info {
+	margin-bottom: 20px;
+}
+
+#msg {
+	width: 80%;
+	height: 20%;
+}
+
+.msg-info {
+	margin-bottom: 20px;
+}
+
+.audio {
+	height: 7%;
+}
+.audio > div {
+	float: left;
+}
+.audio-img {
+	position: relative;
+	top: 5%;
+	left: 5px;
+	width: 8%;
+	height: 80%;
+	background-image: url('/upload/img/audio.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.submit {
+	position: absolute;
+	width: 30%;
+	left: 35%;
+	bottom: 0px;
+	height: 10%;
+	background-image: url('/upload/img/submit.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#audio-name {
+	position: relative;
+	left: 10px;
+	top: 10%;
+	font-size: 14px;
+	font-weight: normal;
+	color: red;
+	text-decoration: underline;
+}

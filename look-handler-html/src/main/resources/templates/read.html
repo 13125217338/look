@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" title="云共读" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
+	<link href="/read/read.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="main">
+		<div id="read">
+			<div class="read-c">
+				<div class="content" th:each="msg:${datas}">
+					<div class="info" th:text="${msg.name} + '个人心得分享页'"></div>
+					<div class="see" th:onclick="see('[(${msg.id})]', '[(${msg.name})]', '[(${msg.post})]', '[(${msg.msg})]')"></div>
+				</div>
+			</div>
+			<div class="read-b">
+				<div class="back" onclick="location.href = '/main'"></div>
+			</div>
+		</div>
+		<div id="user">
+			<div id="name"></div>
+			<div id="msg"></div>
+			<div class="audio" onclick="playAudio()">
+				<audio id="audio" autoplay="autoplay"></audio>
+			</div>
+			<div class="make">
+				<div class="create" onclick="openBill()"></div>
+				<div class="more" onclick="location.reload()"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="/common/jquery.min.js"></script>
+<script src="/read/read.js"></script>
+</html>

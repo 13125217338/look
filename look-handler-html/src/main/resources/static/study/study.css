@@ -1,0 +1,61 @@
+body,html {
+	margin: 0px;
+	padding: 0px;
+}
+
+#main {
+	position: relative;
+	max-width: 500px;
+	background-image: url('/study/img/study.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#big, #red {
+	position: relative;
+	top: 13%;
+	left: 10%;
+	width: 80%;
+	height: 55%;
+	color: white;
+	font-weight: bold;
+	overflow: auto;
+}
+#big > div, #red > div {
+	margin-top: 5%;
+}
+
+.info {
+	position: relative;
+	display: inline-block;
+	margin-top: 1%;
+	width: 4px;
+	height: 16px;
+	background-image: url('/study/img/info.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	vertical-align: top;
+}
+
+.content, .sub {
+	display: inline-block;
+	width: 90%;
+}
+.sub {
+	position: relative;
+	left: 10px;
+	font-size: 12px;
+	margin-top: 2%;
+}
+.sub:first-child {
+	margin-top: 3%;
+}
+
+.title {
+	width: 100%;
+	height: 2px;
+	margin-top: 2%;
+	background-image: url('/study/img/title.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}

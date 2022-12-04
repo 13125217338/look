@@ -1,5 +1,6 @@
 package com.huidihao.handler.server;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @描述 处理中心服务入口
  */
 @SpringBootApplication(scanBasePackages = {"org.city", "com.huidihao"})
+@MapperScan(basePackages = "com.huidihao.handler.core.mapper")
 public class HuidihaoHandlerApplication {
 	
 	public static void main(String[] args) {

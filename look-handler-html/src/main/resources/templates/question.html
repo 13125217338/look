@@ -1,0 +1,81 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" title="赛党史精神" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
+	<link href="/question/question.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="main">
+		<div id="user">
+			<span class="in-title">请输入你的姓名</span>
+			<br />
+			<input type="text" class="in-name" id="inName" />
+			<br />
+			<div class="in-select in-select1"><input type="radio" value="观湖" name="select" checked>观湖</div>
+			<div class="in-select in-select2"><input type="radio" value="南泥湾" name="select">南泥湾</div>
+			<br />
+			<div class="submit" onclick="submit()"></div>
+		</div>
+		<div id="ranking">
+			<div class="rank-content">
+				<div class="rank" th:each="data:${datas}">
+					<div th:switch="${data.num}" class="rank-num">
+						<div th:case="1" class="rank-one"></div>
+						<div th:case="2" class="rank-two"></div>
+						<div th:case="3" class="rank-three"></div>
+						<div th:case="*" th:text="${data.num}"></div>
+					</div>
+					<div class="rank-place" th:text="${data.place}"></div>
+					<div class="rank-name" th:text="${data.name}"></div>
+					<div class="rank-score" th:text="${data.score} + '分'"></div>
+				</div>
+			</div>
+			<div class="rank-start">
+				<div class="rank-start-info">
+					<div id="rank-score"></div>
+					<div id="rank-num"></div>
+				</div>
+				<div class="rank-start-bt" onclick="start()"></div>
+			</div>
+		</div>
+		<div id="make">
+			<div class="time">
+				<span>剩余时间: </span>
+				<span id="m">00</span>:<span id="s">00</span>
+			</div>
+			<div class="title">
+				<img class="title-img" src="/question/img/title.png">
+				<span class="question">多选题（5分）</span>
+				<div class="page"><span id="num">0</span><span id="size">/0</span></div>
+			</div>
+			<br />
+			<hr class="split" />
+			<div id="resole">
+				<!-- 题目 -->
+			</div>
+			<div id="result">
+				<!-- 结果 -->
+			</div>
+			<div class="ln">
+				<div class="last" onclick="last()"></div>
+				<div class="next" onclick="next()"></div>
+			</div>
+		</div>
+		<div id="finish">
+			<div id="score">0分</div>
+			<div class="order">
+				<div id="score-tip">XXX</div>
+				<div id="order">XXX</div>
+				<div class="order-make">
+					<div class="rec" onclick="location.reload()"></div>
+					<div class="back" onclick="location.href = '/main'"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="/common/jquery.min.js"></script>
+<script src="/question/question.js"></script>
+<script src="/question/api.js"></script>
+</html>

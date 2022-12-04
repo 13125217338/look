@@ -1,0 +1,300 @@
+body,html {
+	margin: 0px;
+	padding: 0px;
+}
+
+#main {
+	position: relative;
+	max-width: 500px;
+	background-image: url('/question/img/start.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#user {
+	position: absolute;
+	width: 80%;
+	height: 30%;
+	top: 29%;
+	left: 10%;
+	text-align: center;
+}
+
+.in-title {
+	position: relative;
+	top: 25%;
+	font-weight: bold;
+	font-size: 14px;
+}
+.in-name {
+	position: relative;
+	top: 28%;
+	height: 15%;
+	width: 60%;
+}
+.in-select {
+	position: relative;
+	display: inline-block;
+	top: 33%;
+	font-size: 12px;
+	width: 30%;
+}
+.in-select1 {
+	text-align: left;
+	left: -1%;
+}
+.in-select2 {
+	text-align: right;
+	right: 1%;
+}
+
+.submit {
+	position: relative;
+	display: inline-block;
+	top: 40%;
+	width: 30%;
+	height: 15%;
+	font-size: 12px;
+	background-image: url('/question/img/submit.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+
+#make {
+	position: absolute;
+	width: 80%;
+	height: 60%;
+	top: 19%;
+	left: 10%;
+}
+
+.time {
+	position: relative;
+	display: inline-block;
+	font-weight: bold;
+	left: 3%;
+}
+#m,#s {
+	background-color: rgb(91,41,6);
+	color: #fafafa;
+}
+
+.title {
+	position: relative;
+	display: flex;
+	top: 4%;
+	left: 10%;
+	width: 85%;
+	height: 6%;
+	align-items: center;
+}
+.title-img {
+	position: relative;
+	width: 2%;
+	height: 90%;
+}
+
+.page {
+	position: relative;
+	display: inline-block;
+}
+
+.question {
+	position: relative;
+	left: 3%;
+	width: 80%;
+	font-weight: bold;
+}
+#size {
+	color: rgb(125,58,14);
+}
+#num {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.split {
+	border-color: rgb(208,154,83);
+	width: 90%;
+}
+
+#resole {
+	position: relative;
+	left: 10%;
+	width: 80%;
+	height: 30%;
+	overflow: auto;
+}
+
+#result {
+	position: relative;
+	top: 3%;
+	left: 10%;
+	width: 80%;
+	height: 26%;
+	overflow: auto;
+}
+
+.ln {
+	position: relative;
+	top: 15%;
+	height: 10%;
+}
+.ln div {
+	position: relative;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width: 35%;
+	height: 100%;
+}
+.last {
+	background-image: url('/question/img/last.png');
+	float: left;
+}
+.next {
+	float: right;
+	background-image: url('/question/img/next.png');
+}
+
+
+#finish {
+	position: relative;
+	width: 100%;
+	height: 80%;
+	top: 20%;
+}
+#score {
+	position: relative;
+	display: flex;
+	width: 19%;
+	height: 12%;
+	left: 41%;
+	font-size: 20px;
+	font-weight: bold;
+	color: red;
+	justify-content: center;
+	align-items: center;
+}
+
+.order {
+	position: absolute;
+	width: 90%;
+	height: 25%;
+	bottom: 10%;
+	left: 5%;
+}
+#score-tip, #order {
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.rec, .back {
+	position: absolute;
+	display: inline-block;
+	width: 30%;
+	height: 30%;
+	bottom: 0px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.rec {
+	background-image: url('/question/img/rec.png');
+}
+
+.back {
+	background-image: url('/question/img/back.png');
+	right: 0px;
+}
+
+#ranking {
+	position: absolute;
+	bottom: 5%;
+	left: 12%;
+	width: 76%;
+	height: 72%;
+}
+
+.rank {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 7%;
+	margin-top: 10px;
+}
+.rank div{
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 100%;
+	font-weight: bold;
+}
+
+.rank-content {
+	width: 100%;
+	height: 70%;
+	overflow: auto;
+}
+
+.rank-num {
+	width: 8%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	color: rgb(131, 68, 22);
+}
+
+.rank-one, .rank-two, .rank-three {
+	justify-content: center;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+}
+.rank-one {
+	background-image: url('/question/img/one.png');
+}
+.rank-two {
+	background-image: url('/question/img/two.png');
+}
+.rank-three {
+	background-image: url('/question/img/three.png');
+}
+
+.rank-place {
+	width: 30%;
+}
+.rank-name {
+	width: 50%;
+}
+.rank-score {
+	width: 20%;
+}
+
+.rank-start {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 8%;
+}
+
+.rank-start-info {
+	float: left;
+	width: 70%;
+	height: 100%;
+	font-weight: bold;
+}
+.rank-start-bt {
+	float: right;
+	width: 30%;
+	height: 100%;
+	background-image: url('/question/img/start.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}

@@ -19,9 +19,13 @@ public class AudioMsgEntity extends BaseEntity {
 	/* 主键 */
 	private Long id;
 	/* 用户名 */
-	private String userName;
+	private String name;
+	/* 岗位 */
+	private String post;
 	/* 消息 */
 	private String msg;
+	/* 地点 */
+	private String place;
 	/* 语音地址 */
 	private String audioPath;
 	/* 录音名 */

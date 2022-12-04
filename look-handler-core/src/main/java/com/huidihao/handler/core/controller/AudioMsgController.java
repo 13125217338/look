@@ -5,13 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.city.common.api.dto.Response;
 import org.city.common.core.controller.AbstractController;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
+import com.huidihao.handler.api.dto.AudioMsgDto;
 import com.huidihao.handler.core.service.AudioMsgService;
 
 /**
@@ -26,8 +27,8 @@ public class AudioMsgController extends AbstractController<AudioMsgService> {
 
 	@ResponseBody
 	@PostMapping("/push")
-	public Response push(@RequestParam("file") MultipartFile file) throws Exception {
-		return okv(s -> s.push(file));
+	public Response push(@Validated AudioMsgDto audioMsgDto) throws Exception {
+		return okv(s -> s.push(audioMsgDto));
 	}
 	
 	@GetMapping("/getAudio")

@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" title="海报" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
+	<link href="/bill/bill.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="main">
+		<div id="create">
+			<div class="create-info"><input id="msg" type="text"></div>
+			<div class="create-img" onclick="createBill()"></div>
+		</div>
+		<div id="bill">
+			<div class="share" onclick="alert('功能未开发')"></div>
+			<div id="diyInfo"></div>
+			<div class="bill-info">
+				<div class="tip-info">
+					<div class="tip">我刚刚参与观湖-南泥湾“云共读”活动</div>
+					<div class="tip">你也来加入我们吧</div>
+				</div>
+			</div>
+			<div id="qrCode"></div>
+			<div class="qr-code-tip">扫码加入“共读”活动</div>
+			<div class="save" onclick="alert('功能未开发')"></div>
+		</div>
+	</div>
+</body>
+
+<script src="/common/jquery.min.js"></script>
+<script src="/common/jquery.qrcode.js"></script>
+<script src="/common/utf.js"></script>
+<script src="/bill/bill.js"></script>
+</html>
