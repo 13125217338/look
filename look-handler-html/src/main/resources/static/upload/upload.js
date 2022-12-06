@@ -1,16 +1,14 @@
 var rec = null;
-var md = navigator.mediaDevices;
 var file = null;
 var recordTime = 0;
 var audioUrl = null;
-if(!md) {alert("当前浏览器不支持录音操作，请切换浏览器使用！");}
 $(function() {
 	let curHeight = document.body.scrollHeight;
 	$("#main").css("height", curHeight + "px");
 });
 
-//媒体录音功能
-md.getUserMedia({audio: true}).then(stream => {
+//媒体设备获取
+media({audio: true}, function(stream) {
 	let chunks = [];
 	rec = new MediaRecorder(stream);
 	
@@ -28,7 +26,24 @@ md.getUserMedia({audio: true}).then(stream => {
 		$("#audio-name").text(recordTime + ".ogg");
 		console.log("录音结束");
 	}
-})
+}, function(e) {alert(e);});
+
+//媒体录音功能
+function media(constrains, streamCall, errorClass) {
+	if(navigator.getUserMedia){
+		//旧版
+        navigator.getUserMedia(constrains, streamCall, errorClass);
+    } else if (navigator.webkitGetUserMedia){
+        //webkit内核浏览器
+        navigator.webkitGetUserMedia(constrains, streamCall, errorClass);
+    } else if (navigator.mozGetUserMedia){
+        //Firefox浏览器
+        navagator.mozGetUserMedia(constrains, streamCall, errorClass);
+    } else if (navigator.getUserMedia){
+        //最新标准API
+        navigator.mediaDevices.getUserMedia(constrains, streamCall, errorClass);
+    } else {alert("当前浏览器不支持录音操作，请切换浏览器使用！");}
+}
 
 //播放语音
 function playAudio() {
