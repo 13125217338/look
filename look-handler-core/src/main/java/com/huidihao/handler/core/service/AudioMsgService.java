@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -33,19 +32,19 @@ public class AudioMsgService extends AbstractService<AudioMsgDto, AudioMsgEntity
 	@Override
 	@Transactional
 	public void push(AudioMsgDto audioMsgDto) throws IOException {
-		/* 添加录音文件 */
-		Assert.isTrue(add(audioMsgDto), String.format("用户%s未添加语音数据！", audioMsgDto.getName()));
 		/* 有语音才添加 */
 		if (audioMsgDto.getFile() !=  null) {
 			File outFile = new File("audio");
 			if (!outFile.exists()) {outFile.mkdirs();}
-			outFile = new File(outFile, UUID.randomUUID() + audioMsgDto.getFile().getOriginalFilename());
+			outFile = new File(outFile, audioMsgDto.getFile().getOriginalFilename());
 			
 			/* 语音数据 */
 			audioMsgDto.setAudioName(outFile.getName());
 			audioMsgDto.setAudioPath(outFile.getAbsolutePath());
 			try(InputStream in = audioMsgDto.getFile().getInputStream(); OutputStream out = new FileOutputStream(outFile)) {in.transferTo(out);}
 		}
+		/* 添加录音文件 */
+		Assert.isTrue(add(audioMsgDto), String.format("用户%s未添加语音数据！", audioMsgDto.getName()));
 	}
 	
 	@Override

@@ -2,6 +2,7 @@ var rec = null;
 var md = navigator.mediaDevices;
 var file = null;
 var recordTime = 0;
+var audioUrl = null;
 if(!md) {alert("当前浏览器不支持录音操作，请切换浏览器使用！");}
 $(function() {
 	let curHeight = document.body.scrollHeight;
@@ -23,9 +24,16 @@ md.getUserMedia({audio: true}).then(stream => {
 		recordTime = new Date().getTime();
 		let blob = new Blob(chunks, {type: "audio/ogg; codecs=opus"});
 		file = new window.File([blob], recordTime + ".ogg");
+		audioUrl = window.URL.createObjectURL(blob);
+		$("#audio-name").text(recordTime + ".ogg");
 		console.log("录音结束");
 	}
 })
+
+//播放语音
+function playAudio() {
+	$("#audio").attr("src", audioUrl);
+}
 
 //提交分享
 function submit() {
@@ -49,10 +57,21 @@ function submit() {
 	});
 }
 
+//操作录音
+function makeAudio(obj) {
+	let val = $(obj).attr("value");
+	if(val == "false") {startRec(obj);} else {stopRec(obj);}
+}
+
 //开始录音
-function startRec() {rec.start();}
+function startRec(obj) {
+	rec.start();
+	$(obj).css("background-image", "url('/upload/img/stop.png')");
+	$(obj).attr("value", "true");
+}
 //结束录音
-function stopRec() {
+function stopRec(obj) {
 	rec.stop();
-	$("#audio-name").text(recordTime + ".ogg");
+	$(obj).css("background-image", "url('/upload/img/audio.png')");
+	$(obj).attr("value", "false");
 }

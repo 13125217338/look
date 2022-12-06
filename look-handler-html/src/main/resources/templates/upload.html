@@ -19,8 +19,8 @@
 			<div class="msg-info"><textarea id="msg"></textarea> </div>
 			<div class="audio">
 				<div class="audio-info">选择语音录入:</div>
-				<div class="audio-img" onmousedown="startRec()" onmouseup="stopRec()"></div>
-				<div id="audio-name"></div>
+				<div class="audio-img" value="false" onclick="makeAudio(this)"></div>
+				<div id="audio-name" onclick="playAudio()"><audio id="audio" autoplay="autoplay"></audio></div>
 			</div>
 			<div class="submit" onclick="submit()"></div>
 		</div>
