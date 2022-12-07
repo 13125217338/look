@@ -1,14 +1,28 @@
 var problemsList = [];
 var result = {}, resultMapping = [];
 var curIndex = 0, maxIndex = 20;
+var makeInfo = {};
 $(function() {
 	let curHeight = document.body.scrollHeight;
 	$("#main").css("height", curHeight + "px");
 	$("#ranking").hide(); $("#make").hide(); $("#finish").hide();
+	//获取岗位
+	getPosts(function(res) {
+		if(res.code == 200) {renderPost(res.data);}
+		else {alert("获取岗位失败！" + res.msg);}
+	});
+	//获取答题数据
 	$.get("/question/question.txt", function(res) {
 		problemsList = JSON.parse(res).problemsList;
 	});
 });
+
+//渲染岗位
+function renderPost(posts) {
+	$.each(posts, function(i) {
+		$("#post").append("<option value='" + posts[i] + "'>" + posts[i] + "</option>");
+	});
+}
 
 //随机20题
 function randow20() {
@@ -26,16 +40,15 @@ function randow20() {
 
 //提交姓名
 function submit() {
-	let makeInfo = {};
 	makeInfo.place = $(".in-select input[name='select']:checked").val();
 	makeInfo.name = $("#inName").val();
+	makeInfo.post = $("#post").val();
 	makeInfo.time = new Date().getTime();
 	if(!makeInfo.name) {alert("姓名必填！"); return;}
-	//设置本地缓存
-	localStorage.setItem("makeInfo", JSON.stringify(makeInfo));
+	if(!makeInfo.post) {alert("岗位必填！"); return;}
 	
 	//获取当前用户排名数据
-	get(makeInfo.name, function(res) {
+	get({name: makeInfo.name, post: makeInfo.post}, function(res) {
 		if(res.code == 200) {
 			$("#rank-score").text("你的最高分：" + (res.data ? res.data.score : "-") + "分");
 			$("#rank-num").text("目前排名：" + (res.data ? res.data.num : "-") + "名");
@@ -93,13 +106,11 @@ function finish() {
 		score += (result[resultMapping[i]].result ? 5 : 0);
 	});
 	
-	//获取缓存用户数据
-	let makeInfo = JSON.parse(localStorage.getItem("makeInfo"));
 	$("#score").text(score + "分");
 	$("#score-tip").text("恭喜（" + makeInfo.name + "）在本次答题获得" + score + "分！");
 	
 	//添加与获取排名
-	getOrderAndPut({name: makeInfo.name, score: score, place: makeInfo.place}, function(res) {
+	getOrderAndPut({name: makeInfo.name, post: makeInfo.post, score: score, place: makeInfo.place}, function(res) {
 		if(res.code == 200) {$("#order").text("排名第" + res.data + "名");}
 		else {alert(res.msg);}
 	});

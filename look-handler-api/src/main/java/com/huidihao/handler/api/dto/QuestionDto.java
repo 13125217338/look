@@ -21,6 +21,9 @@ public class QuestionDto extends BaseDto{
 	/* 答题人员 */
 	@NotBlank(message = "答题人员不能为空！")
 	private String name;
+	/* 岗位 */
+	@NotBlank(message = "岗位不能为空！")
+	private String post;
 	/* 分数 */
 	@NotNull(message = "未找到答题分数数据！")
 	private Byte score;

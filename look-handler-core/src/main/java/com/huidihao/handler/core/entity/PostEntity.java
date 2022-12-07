@@ -8,20 +8,16 @@ import lombok.Setter;
 
 /**
  * @作者 ChengShi
- * @日期 2022年12月3日
+ * @日期 2022年12月7日
  * @版本 1.0
- * @描述 答题参数
+ * @描述 岗位实体类
  */
-@Getter
 @Setter
-@Table(name = "question")
-public class QuestionEntity extends BaseEntity{
-	/* 答题人员 */
-	private String name;
+@Getter
+@Table(name = "post")
+public class PostEntity extends BaseEntity {
+	/* 主键 */
+	private Long id;
 	/* 岗位 */
 	private String post;
-	/* 分数 */
-	private Byte score;
-	/* 地点 */
-	private String place;
 }

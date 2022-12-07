@@ -10,3 +10,8 @@ function pushMsg(form, result) {
 	  success: result
 	});
 }
+
+//获取所有岗位
+function getPosts(result) {
+	$.post("/data/handler/post/getPosts", null, result);
+}

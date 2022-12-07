@@ -29,13 +29,26 @@ public class QuestionService extends AbstractService<QuestionDto, QuestionEntity
 	@Override
 	@Transactional
 	public int getOrderAndPut(QuestionDto questionDto) {
-		Assert.isTrue(add(questionDto), String.format("答题人员[%s]分数[%d]添加失败！", questionDto.getName(), questionDto.getScore()));
-		return questionMapper.getOrder(questionDto.getName());
+		Condition cd = new Condition("name", questionDto.getName()).and("post", questionDto.getPost());
+		String format = String.format("答题人员[%s]岗位[%s]分数[%d]{?}失败！", questionDto.getName(), questionDto.getPost(), questionDto.getScore());
+		/* 已存在更新用户分数 */
+		QuestionDto findOne = findOne(cd);
+		if (findOne != null) {
+			/* 只有答题分数大于原来的分数才更新 */
+			if (findOne.getScore() < questionDto.getScore()) {
+				QuestionDto dto = new QuestionDto();
+				dto.setScore(questionDto.getScore());
+				Assert.isTrue(update(cd, dto, false), format.replace("{?}", "更新"));
+			}
+		} else {
+			Assert.isTrue(add(questionDto), format.replace("{?}", "添加"));
+		}
+		return questionMapper.getOrder(questionDto.getName(), questionDto.getPost());
 	}
 	
 	@Override
-	public QuestionDto get(String name) {
-		return questionMapper.get(name);
+	public QuestionDto get(String name, String post) {
+		return questionMapper.get(name, post);
 	}
 	
 	@Override

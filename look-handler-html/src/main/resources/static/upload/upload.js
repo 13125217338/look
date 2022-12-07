@@ -5,7 +5,20 @@ var audioUrl = null;
 $(function() {
 	let curHeight = document.body.scrollHeight;
 	$("#main").css("height", curHeight + "px");
+	//获取岗位
+	getPosts(function(res) {
+		if(res.code == 200) {renderPost(res.data);}
+		else {alert("获取岗位失败！" + res.msg);}
+	});
 });
+
+//渲染岗位
+function renderPost(posts) {
+	$.each(posts, function(i) {
+		$("#post").append("<option value='" + posts[i] + "'>" + posts[i] + "</option>");
+	});
+}
+
 
 //媒体设备获取
 media({audio: true}, function(stream) {
@@ -52,6 +65,11 @@ function playAudio() {
 
 //提交分享
 function submit() {
+	let name = $("#name").val();
+	let post = $("#post").val();
+	if(!name) {alert("姓名必填！"); return;}
+	if(!post) {alert("岗位必填！"); return;}
+
 	let msg = $("#msg").val();
 	if(!msg) {alert("个人心得必填！"); return;}
 	if(msg.length > 100) {alert("个人心得不能超过100字！"); return;}
@@ -61,8 +79,8 @@ function submit() {
 	let form = new FormData();
 	form.append("place", place);
 	if(file) {form.append("file", file);}
-	form.append("name", $("#name").val());
-	form.append("post", $("#post").val());
+	form.append("name", name);
+	form.append("post", post);
 	form.append("msg", msg);
 	
 	//推送分享数据

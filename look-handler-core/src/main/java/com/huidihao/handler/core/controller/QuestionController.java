@@ -27,7 +27,7 @@ public class QuestionController extends AbstractController<QuestionService>{
 	}
 	
 	@PostMapping("/get")
-	public Response get(@RequestParam("name") String name) {
-		return OK(s -> s.get(name));
+	public Response get(@RequestParam("name") String name, @RequestParam("post") String post) {
+		return OK(s -> s.get(name, post));
 	}
 }

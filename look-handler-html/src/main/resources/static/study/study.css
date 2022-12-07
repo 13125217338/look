@@ -11,6 +11,13 @@ body,html {
 	background-size: 100% 100%;
 }
 
+::-webkit-scrollbar{
+	width: 3px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(40, 40, 40, 0.3);
+}
+
 #big, #red {
 	position: relative;
 	top: 13%;
@@ -58,4 +65,30 @@ body,html {
 	background-image: url('/study/img/title.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+}
+
+#big .content:before {
+    width: 14px;
+    height: 14px;
+    content: '';
+    display: inline-block;
+    background-image: url('/study/img/link.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#big .content {
+	text-decoration: underline;
+}
+
+#red .sub:before {
+    width: 10px;
+    height: 10px;
+    content: '';
+    display: inline-block;
+    background-image: url('/study/img/link.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#red .sub {
+	text-decoration: underline;
 }

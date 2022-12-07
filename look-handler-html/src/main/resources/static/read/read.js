@@ -11,7 +11,7 @@ function see(id, name, post, msg) {
 	$("#read").hide(); $("#user").show();
 	$("#main").css("background-image", "url('/read/img/user.jpg')");
 	
-	$("#name").text(name + " " + post + "岗位");
+	$("#name").text(name + " " + post);
 	$("#msg").text(msg);
 }
 

@@ -4,6 +4,11 @@ function getOrderAndPut(data, result) {
 }
 
 //获取用户排名数据
-function get(name, result) {
-	$.post("/data/handler/question/get", {name: name}, result);
+function get(data, result) {
+	$.post("/data/handler/question/get", data, result);
+}
+
+//获取所有岗位
+function getPosts(result) {
+	$.post("/data/handler/post/getPosts", null, result);
 }

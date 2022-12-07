@@ -11,6 +11,13 @@ body,html {
 	background-size: 100% 100%;
 }
 
+::-webkit-scrollbar{
+	width: 3px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(40, 40, 40, 0.3);
+}
+
 #user {
 	position: absolute;
 	width: 80%;
@@ -20,22 +27,34 @@ body,html {
 	text-align: center;
 }
 
+.post-select {
+	display: inline-block;
+	position: relative;
+	top: 32%;
+	width: 60%;
+	height: 15%;
+}
+#post {
+	width: 100%;
+	height: 100%;
+}
+
 .in-title {
 	position: relative;
-	top: 25%;
+	top: 18%;
 	font-weight: bold;
 	font-size: 14px;
 }
 .in-name {
 	position: relative;
-	top: 28%;
+	top: 22%;
 	height: 15%;
 	width: 60%;
 }
 .in-select {
 	position: relative;
 	display: inline-block;
-	top: 33%;
+	top: 25%;
 	font-size: 12px;
 	width: 30%;
 }
@@ -119,21 +138,23 @@ body,html {
 	width: 90%;
 }
 
+.rr {
+	width: 96%;
+	height: 56%;
+	overflow: auto;
+}
+
 #resole {
 	position: relative;
 	left: 10%;
 	width: 80%;
-	height: 30%;
-	overflow: auto;
 }
 
 #result {
 	position: relative;
-	top: 3%;
+	top: 10%;
 	left: 10%;
 	width: 80%;
-	height: 26%;
-	overflow: auto;
 }
 
 .ln {
@@ -240,6 +261,7 @@ body,html {
 .rank-content {
 	width: 100%;
 	height: 70%;
+	padding-right: 5px;
 	overflow: auto;
 }
 

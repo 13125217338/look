@@ -23,9 +23,10 @@ public interface QuestionApi {
 	/**
 	 * @描述 获取答题参数
 	 * @param name 答题人员
+	 * @param post 岗位
 	 * @return 答题参数
 	 */
-	public QuestionDto get(String name);
+	public QuestionDto get(String name, String post);
 	
 	/**
 	 * @描述 获取所有答题参数

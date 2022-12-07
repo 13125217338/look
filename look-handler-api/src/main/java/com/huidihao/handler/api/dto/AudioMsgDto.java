@@ -1,5 +1,6 @@
 package com.huidihao.handler.api.dto;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.city.common.api.dto.BaseDto;
@@ -23,8 +24,10 @@ public class AudioMsgDto extends BaseDto {
 	/* 主键 */
 	private Long id;
 	/* 用户名 */
+	@NotBlank(message = "用户名不能为空！")
 	private String name;
 	/* 岗位 */
+	@NotBlank(message = "岗位不能为空！")
 	private String post;
 	/* 消息 */
 	@Size(min = 1, max = 100, message = "个人心得必须在1-100字之间！")

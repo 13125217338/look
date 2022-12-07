@@ -17,16 +17,20 @@ public interface QuestionMapper {
 	/**
 	 * @描述 获取排序号
 	 * @param name 答题人员
+	 * @param post 岗位
 	 * @return 排名
 	 */
-	@Select("select num from (select * from (select (@i:= @i + 1) as num, `name` from (select @i:= 0) t, question q order by score desc) t having t.`name` = #{name}) t")
-	public int getOrder(@Param("name") String name);
+	@Select("select num from (select * from (select (@i:= @i + 1) as num, `name`, post from (select @i:= 0) t, question q order by score desc) "
+			+ "t having t.`name` = #{name} and t.`post` = #{post}) t")
+	public int getOrder(@Param("name") String name, @Param("post") String post);
 	
 	/**
 	 * @描述 获取当前用户排名数据
 	 * @param name 答题人员
+	 * @param post 岗位
 	 * @return 排名数据
 	 */
-	@Select("select t.* from (select (@i:= @i + 1) as num, `name`, score from (select @i:= 0) t, question q order by score desc) t having t.`name` = #{name}")
-	public QuestionDto get(@Param("name") String name);
+	@Select("select * from (select (@i:= @i + 1) as num, `name`, score, post from (select @i:= 0) t, question q order by score desc) "
+			+ "t having t.`name` = #{name} and t.`post` = #{post}")
+	public QuestionDto get(@Param("name") String name, @Param("post") String post);
 }
