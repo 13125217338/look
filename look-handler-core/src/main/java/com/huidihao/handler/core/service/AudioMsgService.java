@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.city.common.api.dto.Condition;
 import org.city.common.core.service.AbstractService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -19,6 +20,7 @@ import org.springframework.util.Assert;
 import com.huidihao.handler.api.dto.AudioMsgDto;
 import com.huidihao.handler.api.open.AudioMsgApi;
 import com.huidihao.handler.core.entity.AudioMsgEntity;
+import com.huidihao.handler.core.handler.AudioHandler;
 
 /**
  * @作者 ChengShi
@@ -28,20 +30,28 @@ import com.huidihao.handler.core.entity.AudioMsgEntity;
  */
 @Service
 public class AudioMsgService extends AbstractService<AudioMsgDto, AudioMsgEntity> implements AudioMsgApi{
+	@Autowired
+	private AudioHandler audioHandler;
 
 	@Override
 	@Transactional
-	public void push(AudioMsgDto audioMsgDto) throws IOException {
+	public void push(AudioMsgDto audioMsgDto) throws Exception {
 		/* 有语音才添加 */
 		if (audioMsgDto.getFile() !=  null) {
 			File outFile = new File("audio");
 			if (!outFile.exists()) {outFile.mkdirs();}
 			outFile = new File(outFile, audioMsgDto.getFile().getOriginalFilename());
 			
-			/* 语音数据 */
-			audioMsgDto.setAudioName(outFile.getName());
-			audioMsgDto.setAudioPath(outFile.getAbsolutePath());
-			try(InputStream in = audioMsgDto.getFile().getInputStream(); OutputStream out = new FileOutputStream(outFile)) {in.transferTo(out);}
+			/* 保存本地并转成MP3格式 */
+			try(InputStream in = audioMsgDto.getFile().getInputStream(); OutputStream out = new FileOutputStream(outFile)) {
+				in.transferTo(out);
+				File coverFile = new File(outFile.getAbsolutePath() + ".mp3");
+				audioHandler.conver(outFile, coverFile);
+				/* 语音数据 */
+				audioMsgDto.setAudioName(coverFile.getName());
+				audioMsgDto.setAudioPath(coverFile.getAbsolutePath());
+			} finally {outFile.delete();}
+			
 		}
 		/* 添加录音文件 */
 		Assert.isTrue(add(audioMsgDto), String.format("用户%s未添加语音数据！", audioMsgDto.getName()));
@@ -49,12 +59,13 @@ public class AudioMsgService extends AbstractService<AudioMsgDto, AudioMsgEntity
 	
 	@Override
 	public void getAudio(HttpServletResponse response, long id) throws IOException {
-		response.setContentType("audio/ogg; codecs=opus");
 		String audioPath = findOne(new Condition("id", id)).getAudioPath();
 		Assert.notNull(audioPath, String.format("录音[%d]对应语音不存在！", id));
 		
 		/* 读取语音写出 */
-		try(InputStream in = new FileInputStream(audioPath)) {in.transferTo(response.getOutputStream());}
+		File file = new File(audioPath);
+		response.setContentType("audio/mpeg");
+		try(InputStream in = new FileInputStream(file)) {in.transferTo(response.getOutputStream());}
 	}
 
 	@Override

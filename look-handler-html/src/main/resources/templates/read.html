@@ -3,6 +3,8 @@
 	<meta charset="utf-8" title="云共读" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
 	<link href="/read/read.css" rel="stylesheet" type="text/css" />
+	<script src="/common/jquery.min.js"></script>
+	<script src="/read/read.js"></script>
 </head>
 <body>
 	<div id="main">
@@ -21,7 +23,7 @@
 			<div id="name"></div>
 			<div id="msg"></div>
 			<div class="audio" onclick="playAudio()">
-				<audio id="audio" autoplay="autoplay"></audio>
+				<audio id="audio"></audio>
 			</div>
 			<div class="make">
 				<div class="create" onclick="openBill()"></div>
@@ -30,7 +32,4 @@
 		</div>
 	</div>
 </body>
-
-<script src="/common/jquery.min.js"></script>
-<script src="/read/read.js"></script>
 </html>

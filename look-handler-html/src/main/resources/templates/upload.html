@@ -3,6 +3,9 @@
 	<meta charset="utf-8" title="分享" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
 	<link href="/upload/upload.css" rel="stylesheet" type="text/css" />
+	<script src="/common/jquery.min.js"></script>
+	<script src="/upload/upload.js"></script>
+	<script src="/upload/api.js"></script>
 </head>
 <body>
 	<div id="main">
@@ -22,7 +25,7 @@
 			<div class="audio">
 				<div class="audio-info">选择语音录入:</div>
 				<div class="audio-img" value="false" onclick="makeAudio(this)"></div>
-				<div id="audio-name" onclick="playAudio()"><audio id="audio" autoplay="autoplay"></audio></div>
+				<div id="audio-name" onclick="playAudio()"><audio id="audio"></audio></div>
 				<br />
 				<div class="audio-tip">点击按钮开始录音</div>
 			</div>
@@ -30,8 +33,4 @@
 		</div>
 	</div>
 </body>
-
-<script src="/common/jquery.min.js"></script>
-<script src="/upload/upload.js"></script>
-<script src="/upload/api.js"></script>
 </html>

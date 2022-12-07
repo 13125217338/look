@@ -61,6 +61,7 @@ function media(constrains, streamCall, errorClass) {
 //播放语音
 function playAudio() {
 	$("#audio").attr("src", audioUrl);
+	$("#audio")[0].play();
 }
 
 //提交分享

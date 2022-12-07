@@ -1,12 +1,21 @@
 $(function() {
 	let curHeight = document.body.scrollHeight;
 	$("#main").css("height", curHeight + "px");
-	$("#read").hide();
+	$(".next").hide(); $("index").hide(); $("#read").hide();
 });
+
+//开始播放
+function startPlay() {
+	setTimeout(function() {
+		$("#main").css("background-image", "url('/main/img/main.jpg')");
+		$(".next").show(); $("index").show();
+	}, 500)
+}
 
 //下一页
 function next(obj) {
 	$("#main").css("background-image", "url('/main/img/index.jpg')");
+	$("#bg")[0].play();
 	$(obj).hide(); $("#index").show();
 }
 

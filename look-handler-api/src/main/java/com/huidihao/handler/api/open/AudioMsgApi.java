@@ -18,9 +18,9 @@ public interface AudioMsgApi {
 	/**
 	 * @描述 推送语音数据
 	 * @param audioMsgDto 录音数据
-	 * @throws IOException
+	 * @throws Exception
 	 */
-	public void push(AudioMsgDto audioMsgDto) throws IOException;
+	public void push(AudioMsgDto audioMsgDto) throws Exception;
 	
 	/**
 	 * @描述 列出语音数据列表

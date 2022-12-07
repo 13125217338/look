@@ -18,6 +18,7 @@ function see(id, name, post, msg) {
 //播放音频
 function playAudio() {
 	$("#audio").attr("src", "/data/handler/audio/getAudio?id=" + seeId);
+	$("#audio")[0].play();
 }
 
 //生成海报

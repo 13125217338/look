@@ -17,5 +17,11 @@
   		<groupId>com.huidihao</groupId>
   		<artifactId>look-handler-api</artifactId>
   	</dependency>
+  	
+  	<dependency>
+  		<groupId>ws.schild</groupId>
+  		<artifactId>jave-all-deps</artifactId>
+  		<version>3.3.1</version>
+  	</dependency>
   </dependencies>
 </project>

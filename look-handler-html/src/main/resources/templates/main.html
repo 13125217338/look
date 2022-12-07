@@ -3,8 +3,11 @@
 	<meta charset="utf-8" title="主页" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
 	<link href="/main/main.css" rel="stylesheet" type="text/css" />
+	<script src="/common/jquery.min.js"></script>
+	<script src="/main/main.js"></script>
 </head>
 <body>
+	<audio src="/main/music/bg.mp3" loop="loop" id="bg" oncanplay="startPlay()"></audio>
 	<div id="main">
 		<div class="next" onclick="next(this)"></div>
 		<div id="index">
@@ -25,7 +28,4 @@
 		</div>
 	</div>
 </body>
-
-<script src="/common/jquery.min.js"></script>
-<script src="/main/main.js"></script>
 </html>
