@@ -7,7 +7,7 @@
 	<script src="/main/main.js"></script>
 </head>
 <body>
-	<audio src="/main/music/bg.mp3" loop="loop" id="bg" oncanplay="startPlay()"></audio>
+	<audio src="/main/music/bg.mp3" loop="loop" id="bg" ondurationchange="startPlay()"></audio>
 	<div id="main">
 		<div class="next" onclick="next(this)"></div>
 		<div id="index">
