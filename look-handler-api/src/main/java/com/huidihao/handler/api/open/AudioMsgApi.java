@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import com.huidihao.handler.api.dto.AudioMsgDto;
+import com.huidihao.handler.api.dto.WxConfigDto;
 
 /**
  * @作者 ChengShi
@@ -36,4 +37,11 @@ public interface AudioMsgApi {
 	 * @throws IOException
 	 */
 	public void getAudio(HttpServletResponse response, long id) throws IOException;
+	
+	/**
+	 * @描述 获取微信配置信息
+	 * @param url 当前地址页面
+	 * @return 微信配置信息
+	 */
+	public WxConfigDto getConfig(String url);
 }

@@ -30,6 +30,8 @@ public class QuestionDto extends BaseDto{
 	/* 地点 */
 	@NotBlank(message = "未找到地点信息！")
 	private String place;
+	/* 联系方式 */
+	private String contact;
 	
 	/* 排名 */
 	private Integer num;

@@ -21,7 +21,7 @@ import com.huidihao.handler.core.entity.PostEntity;
 public class PostService extends AbstractService<PostDto, PostEntity> implements PostApi{
 
 	@Override
-	public List<String> getPosts() {
-		return findAll(new Condition()).stream().map(v -> v.getPost()).collect(Collectors.toList());
+	public List<String> getPosts(String place) {
+		return findAll(new Condition("place", place)).stream().map(v -> v.getPost()).collect(Collectors.toList());
 	}
 }

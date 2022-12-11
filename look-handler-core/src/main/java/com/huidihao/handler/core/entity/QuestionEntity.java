@@ -24,4 +24,6 @@ public class QuestionEntity extends BaseEntity{
 	private Byte score;
 	/* 地点 */
 	private String place;
+	/* 联系方式 */
+	private String contact;
 }

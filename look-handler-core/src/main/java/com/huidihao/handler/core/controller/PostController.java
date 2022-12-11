@@ -4,6 +4,7 @@ import org.city.common.api.dto.Response;
 import org.city.common.core.controller.AbstractController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.huidihao.handler.core.service.PostService;
@@ -19,7 +20,7 @@ import com.huidihao.handler.core.service.PostService;
 public class PostController extends AbstractController<PostService>{
 
 	@PostMapping("/getPosts")
-	public Response getPosts() {
-		return OK(s -> s.getPosts());
+	public Response getPosts(@RequestParam("place") String place) {
+		return OK(s -> s.getPosts(place));
 	}
 }

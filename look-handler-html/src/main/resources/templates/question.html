@@ -10,15 +10,23 @@
 <body>
 	<div id="main">
 		<div id="user">
-			<span class="in-title">请输入你的姓名</span>
+			<div class="in-title"><span>请输入你的姓名</span></div>
 			<br />
-			<input type="text" class="in-name" id="inName" />
+			<input type="text" id="inName" />
 			<br />
-			<div class="in-select in-select1"><input type="radio" value="观湖" name="select" checked>观湖</div>
-			<div class="in-select in-select2"><input type="radio" value="南泥湾" name="select">南泥湾</div>
+			<div class="in-select in-select1"><input type="radio" value="观湖" name="select" checked onclick="getPostsToPlace('观湖')">观湖</div>
+			<div class="in-select in-select2"><input type="radio" value="南泥湾" name="select" onclick="getPostsToPlace('南泥湾')">南泥湾</div>
 			<br />
 			<div class="post-select">
-				<select id="post"></select>
+				<div>部门</div>
+				<select id="post">
+					<option value="">&lt;下拉选择&gt;</option>
+				</select>
+			</div>
+			<br />
+			<div class="contact">
+				<div>联系方式</div>
+				<input type="text" id="contact" />
 			</div>
 			<br />
 			<div class="submit" onclick="submit()"></div>

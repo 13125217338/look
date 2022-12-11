@@ -75,11 +75,14 @@ body,html {
 }
 
 #name {
-	position: relative;
-	width: 50%;
-	left: 30%;
-	text-align: center;
-	font-weight: bold;
+    position: relative;
+    width: 50%;
+    left: 30%;
+    text-align: center;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #msg {

@@ -34,6 +34,8 @@ public class AudioMsgDto extends BaseDto {
 	private String msg;
 	/* 地点 */
 	private String place;
+	/* 联系方式 */
+	private String contact;
 	/* 语音地址 */
 	private String audioPath;
 	/* 录音名 */
@@ -41,4 +43,6 @@ public class AudioMsgDto extends BaseDto {
 	
 	/* 音频文件 */
 	private MultipartFile file;
+	/* 微信服务器录音 */
+	private String audioId;
 }

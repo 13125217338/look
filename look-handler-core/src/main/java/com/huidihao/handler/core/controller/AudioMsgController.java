@@ -35,4 +35,10 @@ public class AudioMsgController extends AbstractController<AudioMsgService> {
 	public void getAudio(HttpServletResponse response, @RequestParam("id") long id) throws Exception {
 		service.getAudio(response, id);
 	}
+	
+	@ResponseBody
+	@PostMapping("/getConfig")
+	public Response getConfig(@RequestParam("url") String url) {
+		return OK(s -> s.getConfig(url));
+	}
 }

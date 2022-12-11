@@ -9,6 +9,6 @@ function get(data, result) {
 }
 
 //获取所有岗位
-function getPosts(result) {
-	$.post("/data/handler/post/getPosts", null, result);
+function getPosts(place, result) {
+	$.post("/data/handler/post/getPosts", {place: place}, result);
 }

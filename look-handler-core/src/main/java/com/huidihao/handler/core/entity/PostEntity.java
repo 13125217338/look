@@ -20,4 +20,6 @@ public class PostEntity extends BaseEntity {
 	private Long id;
 	/* 岗位 */
 	private String post;
+	/* 地点 */
+	private String place;
 }

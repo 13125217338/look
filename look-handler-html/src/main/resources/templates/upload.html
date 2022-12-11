@@ -4,8 +4,9 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
 	<link href="/upload/upload.css" rel="stylesheet" type="text/css" />
 	<script src="/common/jquery.min.js"></script>
-	<script src="/upload/upload.js"></script>
+	<script src="/common/jwx.js"></script>
 	<script src="/upload/api.js"></script>
+	<script src="/upload/upload.js"></script>
 </head>
 <body>
 	<div id="main">
@@ -13,12 +14,18 @@
 			<div class="name">姓名</div>
 			<div class="name-info"><input id="name" type="text"></div>
 			<div class="place">
-				<input type="radio" value="观湖" name="select" checked>观湖
-				<input type="radio" value="南泥湾" name="select" style="margin-left: 15%;">南泥湾
+				<input type="radio" value="观湖" name="select" checked onclick="getPostsToPlace('观湖')">观湖
+				<input type="radio" value="南泥湾" name="select" style="margin-left: 15%;" onclick="getPostsToPlace('南泥湾')">南泥湾
 			</div>
 			<div class="post">岗位</div>
 			<div class="post-info">
-				<select id="post"></select>
+				<select id="post">
+					<option value="">&lt;下拉选择&gt;</option>
+				</select>
+			</div>
+			<div>联系方式</div>
+			<div class="contact">
+				<input type="text" id="contact" />
 			</div>
 			<div class="msg">100字心得</div>
 			<div class="msg-info"><textarea id="msg"></textarea> </div>

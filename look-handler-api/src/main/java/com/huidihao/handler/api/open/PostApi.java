@@ -10,8 +10,9 @@ import java.util.List;
  */
 public interface PostApi {
 	/**
-	 * @描述 获取所有岗位信息
+	 * @描述 通过地点获取所有岗位信息
+	 * @param place 地点
 	 * @return 所有岗位信息
 	 */
-	public List<String> getPosts();
+	public List<String> getPosts(String place);
 }

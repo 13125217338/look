@@ -12,6 +12,11 @@ function pushMsg(form, result) {
 }
 
 //获取所有岗位
-function getPosts(result) {
-	$.post("/data/handler/post/getPosts", null, result);
+function getPosts(place, result) {
+	$.post("/data/handler/post/getPosts", {place: place}, result);
+}
+
+//获取微信配置
+function getConfig(result) {
+	$.post("/data/handler/audio/getConfig", {url: location.href}, result);
 }

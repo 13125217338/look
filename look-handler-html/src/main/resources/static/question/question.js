@@ -6,19 +6,27 @@ $(function() {
 	let curHeight = document.body.scrollHeight;
 	$("#main").css("height", curHeight + "px");
 	$("#ranking").hide(); $("#make").hide(); $("#finish").hide();
-	//获取岗位
-	getPosts(function(res) {
-		if(res.code == 200) {renderPost(res.data);}
-		else {alert("获取岗位失败！" + res.msg);}
-	});
+	//初始观湖
+	getPostsToPlace("观湖");
 	//获取答题数据
 	$.get("/question/question.txt", function(res) {
 		problemsList = JSON.parse(res).problemsList;
 	});
 });
 
+//通过地点获取不同部门
+function getPostsToPlace(place) {
+	//获取岗位
+	getPosts(place, function(res) {
+		if(res.code == 200) {renderPost(res.data);}
+		else {alert("获取岗位失败！" + res.msg);}
+	});
+}
+
 //渲染岗位
 function renderPost(posts) {
+	$("#post").html(""); //先置空
+	$("#post").append('<option value="">&lt;下拉选择&gt;</option>');
 	$.each(posts, function(i) {
 		$("#post").append("<option value='" + posts[i] + "'>" + posts[i] + "</option>");
 	});
@@ -43,6 +51,7 @@ function submit() {
 	makeInfo.place = $(".in-select input[name='select']:checked").val();
 	makeInfo.name = $("#inName").val();
 	makeInfo.post = $("#post").val();
+	makeInfo.contact = $("#contact").val();
 	makeInfo.time = new Date().getTime();
 	if(!makeInfo.name) {alert("姓名必填！"); return;}
 	if(!makeInfo.post) {alert("岗位必填！"); return;}
@@ -110,7 +119,7 @@ function finish() {
 	$("#score-tip").text("恭喜（" + makeInfo.name + "）在本次答题获得" + score + "分！");
 	
 	//添加与获取排名
-	getOrderAndPut({name: makeInfo.name, post: makeInfo.post, score: score, place: makeInfo.place}, function(res) {
+	getOrderAndPut({name: makeInfo.name, post: makeInfo.post, score: score, place: makeInfo.place, contact: makeInfo.contact}, function(res) {
 		if(res.code == 200) {$("#order").text("排名第" + res.data + "名");}
 		else {alert(res.msg);}
 	});
@@ -136,16 +145,23 @@ function next() {
 function render() {
 	$("#resole").text(result[resultMapping[curIndex]].problems);
 	let ot = result[resultMapping[curIndex]].option;
+	let isMany = result[resultMapping[curIndex]].answer.length > 1;
 	$("#result").html(""); //先置空
 	//循环配置生成
 	for(let i in ot) {
 		//取出对象key
 		let key = Object.keys(ot[i])[0];
 		//通过key，value生成html
-		let opHtml = "<div onclick=\"$(this).find('input').click()\">" +
-			"<input type=\"checkbox\" name=\"result\" value=\"" + key + "\" />" +
+		let opHtml = "<div onclick=\"checkBt(this, " + isMany + ")\">" +
+			"<input type=" + (isMany ? "'checkbox'" : "'radio'") + "name=\"result\" value=\"" + key + "\" />" +
 			"<span>" + key + "." + ot[i][key] + "</span></div>";
 		$("#result").append(opHtml);
 	}
 	$("#num").text(curIndex + 1);
+}
+
+//选中
+function checkBt(obj, isMany) {
+	if(isMany) {$(obj).find("input").click();}
+	else {$(obj).find("input").prop("checked", "checked");}
 }

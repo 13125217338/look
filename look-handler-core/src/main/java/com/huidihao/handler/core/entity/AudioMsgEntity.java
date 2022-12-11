@@ -26,6 +26,8 @@ public class AudioMsgEntity extends BaseEntity {
 	private String msg;
 	/* 地点 */
 	private String place;
+	/* 联系方式 */
+	private String contact;
 	/* 语音地址 */
 	private String audioPath;
 	/* 录音名 */

@@ -2,6 +2,8 @@ $(function() {
 	let curHeight = document.body.scrollHeight;
 	$("#main").css("height", curHeight + "px");
 	$(".next").hide(); $("index").hide(); $("#read").hide();
+	//开始加载
+	startPlay();
 });
 
 //开始播放
@@ -15,7 +17,7 @@ function startPlay() {
 //下一页
 function next(obj) {
 	$("#main").css("background-image", "url('/main/img/index.jpg')");
-	$("#bg")[0].play();
+	$("#bg").attr("src", "/main/music/bg.mp3"); $("#bg")[0].play();
 	$(obj).hide(); $("#index").show();
 }
 
