@@ -93,7 +93,7 @@ public class AudioHandler {
 		Integer code = signJson.getInteger("errcode");
 		if (code != null && code != 0) {throw new RuntimeException(signJson.getString("errmsg"));}
 		/* 缓存签名 */
-		redisTemplate.opsForValue().set(SING_REDIS_KEY, token, signJson.getLongValue("expires_in"), TimeUnit.SECONDS);
+		redisTemplate.opsForValue().set(SING_REDIS_KEY, signJson.getString("access_token"), signJson.getLongValue("expires_in"), TimeUnit.SECONDS);
 		return signJson.getString("access_token");
 	}
 	/* 获取jsApi票据 */
@@ -106,7 +106,7 @@ public class AudioHandler {
 		Integer code = ticketJson.getInteger("errcode");
 		if (code != null && code != 0) {throw new RuntimeException(ticketJson.getString("errmsg"));}
 		/* 缓存签名 */
-		redisTemplate.opsForValue().set(SING_REDIS_KEY, sign, ticketJson.getLongValue("expires_in"), TimeUnit.SECONDS);
+		redisTemplate.opsForValue().set(TICKET_REDIS_KEY, ticketJson.getString("ticket"), ticketJson.getLongValue("expires_in"), TimeUnit.SECONDS);
 		return ticketJson.getString("ticket");
 	
 	}
