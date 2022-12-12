@@ -21,6 +21,10 @@ function openUrl(code) {
 		case 12: url = "https://appimg.allcitysz.com/template/displayTemplatev1/dist/index.html?id=659967&columnId=0#/newsDetail/659967/0?isShare=true&userName=鑾瑰効拢&deviceId=ee348b8d5ba75a54"; break;
 		case 13: url = "https://appimg.allcitysz.com/template/displayTemplatev1/dist/index.html?id=652416&columnId=0#/newsDetail/652416/0?isShare=true&userName=鑾瑰効拢&deviceId=ee348b8d5ba75a54"; break;
 		case 14: url = "https://appimg.allcitysz.com/template/displayTemplatev1/dist/index.html?id=766999&columnId=0#/newsDetail/766999/0?isShare=true&userName=鑾瑰効拢&deviceId=ee348b8d5ba75a54"; break;
+		case 15: url = "https://appimg.allcitysz.com/template/displayTemplatev1/dist/index.html#/newsDetail/715282/75?isShare=true"; break;
+		case 16: url = "https://www.dutenews.com/p/2817583.html"; break;
+		case 17: url = "https://article.xuexi.cn/articles/index.html?art_id=13492087626592719651&item_id=13492087626592719651&study_style_id=video_default&t=1627314274835&showmenu=false&ref_read_id=253f58da-dbba-46e2-85c0-b307921ca9cc_1627524320669&pid=&ptype=-1&source=share&share_to=wx_feed"; break;
+		case 18: url = "https://wap.peopleapp.com/article/rmh25517480/rmh25517480"; break;
 		default: alert("未找到Code对应Url，Code值》 " + code);
 	}
 	window.open(url);

@@ -146,6 +146,9 @@ function render() {
 	$("#resole").text(result[resultMapping[curIndex]].problems);
 	let ot = result[resultMapping[curIndex]].option;
 	let isMany = result[resultMapping[curIndex]].answer.length > 1;
+	
+	//判断单选多选
+	if(isMany) {$(".question").text("多选题（5分）");} else {$(".question").text("单选题（5分）");}
 	$("#result").html(""); //先置空
 	//循环配置生成
 	for(let i in ot) {
