@@ -3,6 +3,7 @@
 	<meta charset="utf-8" title="海报" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
 	<link href="/bill/bill.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
 	<script src="/common/jquery.min.js"></script>
 	<script src="/common/jquery.qrcode.js"></script>
 	<script src="/common/utf.js"></script>
@@ -27,7 +28,7 @@
 			</div>
 			<div id="qrCode"></div>
 			<div class="qr-code-tip">扫码加入“共读”活动</div>
-			<div class="save" onclick="alert('功能未开发')"></div>
+			<div class="save"><a style="display: none;" id="downBill" download="bill.png"></a></div>
 		</div>
 	</div>
 </body>
