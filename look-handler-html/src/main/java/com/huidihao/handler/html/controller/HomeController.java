@@ -38,7 +38,7 @@ public class HomeController {
 	@GetMapping("/read")
 	public String read(@RequestParam("place") String place, Model model) {
 		AudioMsgDto audioMsgDto = new AudioMsgDto();
-		audioMsgDto.setPlace(place).setPageNum(1).setPageSize(100);
+		audioMsgDto.setPlace(place).setPageNum(1).setPageSize((int) Short.MAX_VALUE);
 		model.addAttribute("datas", audioMsgApi.list(audioMsgDto));
 		model.addAttribute("place", place);
 		return "read";
@@ -57,7 +57,7 @@ public class HomeController {
 	@GetMapping("/question")
 	public String question(Model model) {
 		QuestionDto questionDto = new QuestionDto();
-		questionDto.setPageNum(1).setPageSize(100);
+		questionDto.setPageNum(1).setPageSize((int) Short.MAX_VALUE);
 		/* 分页查询 */
 		model.addAttribute("datas", questionApi.list(questionDto));
 		return "question";

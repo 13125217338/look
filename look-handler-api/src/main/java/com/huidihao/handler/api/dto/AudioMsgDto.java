@@ -40,6 +40,8 @@ public class AudioMsgDto extends BaseDto {
 	private String audioPath;
 	/* 录音名 */
 	private String audioName;
+	/* 排序 - 越小越低 */
+	private Byte sort;
 	
 	/* 音频文件 */
 	private MultipartFile file;

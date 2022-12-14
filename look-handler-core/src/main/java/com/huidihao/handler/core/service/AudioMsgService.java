@@ -101,7 +101,8 @@ public class AudioMsgService extends AbstractService<AudioMsgDto, AudioMsgEntity
 
 	@Override
 	public List<AudioMsgDto> list(AudioMsgDto audioMsgDto) {
-		return findAll(new Condition("place", audioMsgDto.getPlace()).limit(audioMsgDto));
+		return findAll(new Condition("place", audioMsgDto.getPlace()).limit(audioMsgDto)
+				.orderBy(null, "sort", false).orderBy(null, "id", false));
 	}
 	
 	@Override

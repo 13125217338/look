@@ -25,3 +25,9 @@ function playAudio() {
 function openBill() {
 	location.href = "/bill";
 }
+
+//返回首页
+function backMain() {
+	localStorage.setItem("isBack", true);
+	location.href = '/main';
+}

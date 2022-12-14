@@ -1,16 +1,18 @@
 $(function() {
 	let curHeight = document.body.scrollHeight;
 	$("#main").css("height", curHeight + "px");
-	$(".next").hide(); $("index").hide(); $("#read").hide();
+	$(".next").hide(); $("#index").hide(); $("#read").hide();
+	
+	var isBack = localStorage.getItem("isBack"); //特殊返回标志
 	//开始加载
-	startPlay();
+	if(isBack) {localStorage.removeItem("isBack"); next($(".next"));} else {startPlay();}
 });
 
 //开始播放
 function startPlay() {
 	setTimeout(function() {
 		$("#main").css("background-image", "url('/main/img/main.jpg')");
-		$(".next").show(); $("index").show();
+		$(".next").show();
 	}, 500)
 }
 

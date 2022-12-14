@@ -12,3 +12,8 @@ function get(data, result) {
 function getPosts(place, result) {
 	$.post("/data/handler/post/getPosts", {place: place}, result);
 }
+
+//验证用户是否提交过
+function verifyUser(data, result) {
+	$.post("/data/handler/question/verify", data, result);
+}

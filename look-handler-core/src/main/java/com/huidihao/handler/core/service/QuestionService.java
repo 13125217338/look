@@ -52,6 +52,12 @@ public class QuestionService extends AbstractService<QuestionDto, QuestionEntity
 	}
 	
 	@Override
+	public void verify(String name, String post) {
+		Condition cd = new Condition("name", name).and("post", post);
+		Assert.isTrue(count(cd) == 0, String.format("当前岗位[%s]人员[%s]已经答题过了，无法再次答题！", post, name));
+	}
+	
+	@Override
 	public List<QuestionDto> list(QuestionDto questionDto) {
 		List<QuestionDto> findAll = findAll(new Condition().limit(questionDto).orderBy(new JoinTable(this, null), "score", false));
 		for (int i = 0, j = findAll.size(); i < j; i++) {findAll.get(i).setNum(i + 1);}

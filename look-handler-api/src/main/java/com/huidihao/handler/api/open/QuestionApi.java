@@ -29,6 +29,13 @@ public interface QuestionApi {
 	public QuestionDto get(String name, String post);
 	
 	/**
+	 * @描述 验证答题人员
+	 * @param name 答题人员
+	 * @param post 岗位
+	 */
+	public void verify(String name, String post);
+	
+	/**
 	 * @描述 获取所有答题参数
 	 * @param questionDto 答题参数
 	 * @return 所有答题参数

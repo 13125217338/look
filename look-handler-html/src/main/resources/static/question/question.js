@@ -2,6 +2,7 @@ var problemsList = [];
 var result = {}, resultMapping = [];
 var curIndex = 0, maxIndex = 20;
 var makeInfo = {};
+
 $(function() {
 	let curHeight = document.body.scrollHeight;
 	$("#main").css("height", curHeight + "px");
@@ -56,13 +57,19 @@ function submit() {
 	if(!makeInfo.name) {alert("姓名必填！"); return;}
 	if(!makeInfo.post) {alert("岗位必填！"); return;}
 	
-	//获取当前用户排名数据
-	get({name: makeInfo.name, post: makeInfo.post}, function(res) {
+	var onlyUser = {name: makeInfo.name, post: makeInfo.post};
+	//已经答题过得无法再答题
+	verifyUser(onlyUser, function(res) {
 		if(res.code == 200) {
-			$("#rank-score").text("你的最高分：" + (res.data ? res.data.score : "-") + "分");
-			$("#rank-num").text("目前排名：" + (res.data ? res.data.num : "-") + "名");
-			$("#user").hide(); $("#ranking").show();
-			$("#main").css("background-image", "url('/question/img/ranking.jpg')");
+			//获取当前用户排名数据
+			get(onlyUser, function(res) {
+				if(res.code == 200) {
+					$("#rank-score").text("你的最高分：" + (res.data ? res.data.score : "-") + "分");
+					$("#rank-num").text("目前排名：" + (res.data ? res.data.num : "-") + "名");
+					$("#user").hide(); $("#ranking").show();
+					$("#main").css("background-image", "url('/question/img/ranking.jpg')");
+				} else {alert(res.msg);}
+			});
 		} else {alert(res.msg);}
 	});
 }
@@ -167,4 +174,10 @@ function render() {
 function checkBt(obj, isMany) {
 	if(isMany) {$(obj).find("input").click();}
 	else {$(obj).find("input").prop("checked", "checked");}
+}
+
+//返回首页
+function backMain() {
+	localStorage.setItem("isBack", true);
+	location.href = '/main';
 }

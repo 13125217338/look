@@ -30,4 +30,9 @@ public class QuestionController extends AbstractController<QuestionService>{
 	public Response get(@RequestParam("name") String name, @RequestParam("post") String post) {
 		return OK(s -> s.get(name, post));
 	}
+	
+	@PostMapping("/verify")
+	public Response verify(@RequestParam("name") String name, @RequestParam("post") String post) {
+		return OKV(s -> s.verify(name, post));
+	}
 }
