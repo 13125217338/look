@@ -12,7 +12,7 @@
 			<div class="read-c">
 				<div class="content" th:each="msg:${datas}">
 					<div class="info" th:text="${msg.name} + '个人心得分享页'"></div>
-					<div class="see" th:onclick="see('[(${msg.id})]', '[(${msg.name})]', '[(${msg.post})]', '[(${msg.msg})]')"></div>
+					<div class="see" th:onclick="see('[(${msg.id})]', '[(${msg.name})]', '[(${msg.post})]', '[(${msg.msg})]', '[(${msg.audioName})]')"></div>
 				</div>
 			</div>
 			<div class="read-b">

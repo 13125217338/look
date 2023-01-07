@@ -6,13 +6,15 @@ $(function() {
 });
 
 //查看个人分享页
-function see(id, name, post, msg) {
+function see(id, name, post, msg, audioName) {
+	if(!audioName) {$(".audio").hide();}
+	
 	seeId = id;
 	$("#read").hide(); $("#user").show();
 	$("#main").css("background-image", "url('/read/img/user.jpg')");
 	
 	$("#name").text(name + " " + post);
-	$("#msg").text(msg);
+	$("#msg").text(msg ? msg : "[暂无]");
 }
 
 //播放音频

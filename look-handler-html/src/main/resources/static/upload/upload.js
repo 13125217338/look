@@ -129,13 +129,15 @@ function playAudio() {
 
 //提交分享
 function submit() {
+	let form = new FormData();
+	
 	let name = $("#name").val();
 	let post = $("#post").val();
 	let contact = $("#contact").val();
 	if(!name) {alert("姓名必填！"); return;}
 	if(!post) {alert("岗位必填！"); return;}
 	if(!contact) {alert("联系方式必填！"); return;}
-
+	
 	let twoFlag = true;
 	let msg = $("#msg").val();
 	if(msg) {
@@ -147,7 +149,6 @@ function submit() {
 
 	//地点参数
 	let place = $(".place input[name='select']:checked").val();
-	let form = new FormData();
 	form.append("place", place);
 	form.append("name", name);
 	form.append("post", post);
