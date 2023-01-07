@@ -35,6 +35,7 @@ public class AudioMsgDto extends BaseDto {
 	/* 地点 */
 	private String place;
 	/* 联系方式 */
+	@NotBlank(message = "联系方式不能为空！")
 	private String contact;
 	/* 语音地址 */
 	private String audioPath;

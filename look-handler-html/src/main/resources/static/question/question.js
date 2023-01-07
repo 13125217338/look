@@ -56,6 +56,7 @@ function submit() {
 	makeInfo.time = new Date().getTime();
 	if(!makeInfo.name) {alert("姓名必填！"); return;}
 	if(!makeInfo.post) {alert("岗位必填！"); return;}
+	if(!makeInfo.contact) {alert("联系方式必填！"); return;}
 	
 	var onlyUser = {name: makeInfo.name, post: makeInfo.post};
 	//已经答题过得无法再答题

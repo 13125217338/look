@@ -11,7 +11,7 @@ $(function() {
 //开始播放
 function startPlay() {
 	setTimeout(function() {
-		$("#main").css("background-image", "url('/main/img/main.jpg')");
+		$("#main").css("background-image", "url('/main/img/main.png')");
 		$(".next").show();
 	}, 500)
 }

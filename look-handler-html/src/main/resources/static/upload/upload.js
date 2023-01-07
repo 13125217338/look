@@ -44,7 +44,7 @@ media({audio: true}, function(stream) {
 		let blob = new Blob(chunks, {type: "audio/ogg; codecs=opus"});
 		file = new window.File([blob], recordTime + ".ogg");
 		audioUrl = window.URL.createObjectURL(blob);
-		$("#audio-name").text(recordTime + ".ogg");
+		$("#audio-name").text("录音完成");
 		console.log("录音结束");
 	}
 }, function(e) {alert(e);});
@@ -131,22 +131,27 @@ function playAudio() {
 function submit() {
 	let name = $("#name").val();
 	let post = $("#post").val();
+	let contact = $("#contact").val();
 	if(!name) {alert("姓名必填！"); return;}
 	if(!post) {alert("岗位必填！"); return;}
+	if(!contact) {alert("联系方式必填！"); return;}
 
+	let twoFlag = true;
 	let msg = $("#msg").val();
-	if(!msg) {alert("个人心得必填！"); return;}
-	if(msg.length > 100) {alert("个人心得不能超过100字！"); return;}
+	if(msg) {
+		if(msg.length > 100) {alert("个人心得不能超过100字！"); return;}
+		form.append("msg", msg); twoFlag = false;
+	}
+	if(file) {form.append("file", file); twoFlag = false;}
+	if(twoFlag) {alert("个人心得与语音必须有一个！"); return;}
 
 	//地点参数
 	let place = $(".place input[name='select']:checked").val();
 	let form = new FormData();
 	form.append("place", place);
-	if(file) {form.append("file", file);}
 	form.append("name", name);
 	form.append("post", post);
-	form.append("msg", msg);
-	form.append("contact", $("#contact").val());
+	form.append("contact", contact);
 	
 	if(isWX && localId) {
 		wx.uploadVoice({
